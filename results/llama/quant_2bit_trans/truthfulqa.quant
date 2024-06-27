@@ -1,0 +1,68 @@
+nohup: ignoring input
+2024-06-26:16:00:15,090 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-26:16:00:15,090 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-26:16:00:19,054 INFO     [__main__.py:307] Selected Tasks: ['truthfulqa']
+2024-06-26:16:00:19,054 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-26:16:00:19,055 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-26:16:00:19,136 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-06-26:16:00:19,137 INFO     [llama_qt.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:48<00:48, 48.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:05<00:00, 30.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:05<00:00, 32.89s/it]
+2024-06-26:16:01:47,370 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-26:16:01:52,291 INFO     [task.py:386] Building contexts for truthfulqa_gen on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 11%|█         | 87/817 [00:00<00:00, 862.17it/s] 30%|███       | 247/817 [00:00<00:00, 1290.47it/s] 51%|█████     | 414/817 [00:00<00:00, 1459.28it/s] 71%|███████   | 582/817 [00:00<00:00, 1543.86it/s] 92%|█████████▏| 749/817 [00:00<00:00, 1589.17it/s]100%|██████████| 817/817 [00:00<00:00, 1493.72it/s]
+2024-06-26:16:01:52,912 INFO     [task.py:386] Building contexts for truthfulqa_mc1 on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 12%|█▏        | 97/817 [00:00<00:00, 962.84it/s] 24%|██▍       | 196/817 [00:00<00:00, 974.63it/s] 36%|███▌      | 295/817 [00:00<00:00, 979.06it/s] 48%|████▊     | 394/817 [00:00<00:00, 983.06it/s] 60%|██████    | 493/817 [00:00<00:00, 984.12it/s] 72%|███████▏  | 592/817 [00:00<00:00, 968.33it/s] 85%|████████▍ | 691/817 [00:00<00:00, 974.10it/s] 97%|█████████▋| 790/817 [00:00<00:00, 978.60it/s]100%|██████████| 817/817 [00:00<00:00, 977.20it/s]
+2024-06-26:16:01:53,792 INFO     [task.py:386] Building contexts for truthfulqa_mc2 on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 12%|█▏        | 98/817 [00:00<00:00, 976.57it/s] 24%|██▍       | 197/817 [00:00<00:00, 979.62it/s] 36%|███▌      | 296/817 [00:00<00:00, 980.77it/s] 48%|████▊     | 395/817 [00:00<00:00, 971.16it/s] 60%|██████    | 493/817 [00:00<00:00, 973.99it/s] 72%|███████▏  | 592/817 [00:00<00:00, 976.64it/s] 85%|████████▍ | 691/817 [00:00<00:00, 979.92it/s] 97%|█████████▋| 790/817 [00:00<00:00, 981.06it/s]100%|██████████| 817/817 [00:00<00:00, 978.47it/s]
+2024-06-26:16:01:54,670 INFO     [evaluator.py:365] Running generate_until requests
+Running generate_until requests:   0%|          | 0/817 [00:00<?, ?it/s]Passed argument batch_size = auto. Detecting largest batch size
+Traceback (most recent call last):
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 233, in simple_evaluate
+    results = evaluate(
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 376, in evaluate
+    resps = getattr(lm, reqtype)(cloned_reqs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt.py", line 1127, in generate_until
+    batch_size = self._detect_batch_size()
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt.py", line 665, in _detect_batch_size
+    batch_size = forward_batch()
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/accelerate/utils/memory.py", line 142, in decorator
+    return function(batch_size, *args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt.py", line 660, in forward_batch
+    out = F.log_softmax(self._model_call(test_batch, **call_kwargs), dim=-1)  # noqa: F841
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt.py", line 766, in _model_call
+    return self.model(inps).logits
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt_utils.py", line 752, in forward
+    outputs = self.model(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt_utils.py", line 551, in forward
+    layer_outputs = decoder_layer(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt_utils.py", line 291, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/models/llama_qt_utils.py", line 174, in forward
+    quantized_key_states = dequantize_per_head(quantize_per_head(key_states_trans))
+TypeError: quantize_per_head() missing 1 required positional argument: 'bit'
+Running generate_until requests:   0%|          | 0/817 [00:01<?, ?it/s]

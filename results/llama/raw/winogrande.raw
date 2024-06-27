@@ -1,0 +1,76 @@
+nohup: ignoring input
+[2024-06-16 03:08:53,044] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-16:03:08:54,565 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-16:03:08:54,566 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-16:03:08:57,989 INFO     [__main__.py:307] Selected Tasks: ['winogrande']
+2024-06-16:03:08:57,990 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-16:03:08:57,993 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-16:03:08:57,998 INFO     [huggingface.py:162] Using device 'cuda'
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zx22/.conda/envs/smoe/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 166, in simple_evaluate
+    lm = lm_eval.api.registry.get_model(model).create_from_arg_string(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/api/model.py", line 134, in create_from_arg_string
+    return cls(**args, **args2)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/models/huggingface.py", line 201, in __init__
+    self._create_model(
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/models/huggingface.py", line 524, in _create_model
+    self._model = self.AUTO_MODEL_CLASS.from_pretrained(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 563, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3677, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4104, in _load_pretrained_model
+    new_error_msgs, offload_index, state_dict_index = _load_state_dict_into_meta_model(
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/modeling_utils.py", line 886, in _load_state_dict_into_meta_model
+    set_module_tensor_to_device(model, param_name, param_device, **set_module_kwargs)
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 298, in set_module_tensor_to_device
+    new_value = value.to(device)
+                ^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB (GPU 0; 39.39 GiB total capacity; 2.47 GiB already allocated; 31.00 MiB free; 2.48 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+nohup: ignoring input
+[2024-06-16 03:13:03,653] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-16:03:13:05,274 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-16:03:13:05,274 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-16:03:13:08,589 INFO     [__main__.py:307] Selected Tasks: ['winogrande']
+2024-06-16:03:13:08,590 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-16:03:13:08,592 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-16:03:13:08,595 INFO     [huggingface.py:162] Using device 'cuda'
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]
+2024-06-16:03:13:20,925 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/datasets/load.py:1461: FutureWarning: The repository for winogrande contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/winogrande
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+Downloading builder script:   0%|          | 0.00/5.65k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 5.65k/5.65k [00:00<00:00, 2.87MB/s]
+Downloading readme:   0%|          | 0.00/9.97k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 9.97k/9.97k [00:00<00:00, 5.20MB/s]
+Downloading data:   0%|          | 0.00/3.40M [00:00<?, ?B/s]Downloading data: 100%|██████████| 3.40M/3.40M [00:00<00:00, 46.2MB/s]
+Generating train split:   0%|          | 0/40398 [00:00<?, ? examples/s]Generating train split:  11%|█         | 4427/40398 [00:00<00:00, 43888.95 examples/s]Generating train split:  22%|██▏       | 9033/40398 [00:00<00:00, 45161.39 examples/s]Generating train split:  34%|███▍      | 13884/40398 [00:00<00:00, 46680.79 examples/s]Generating train split:  48%|████▊     | 19194/40398 [00:00<00:00, 49209.25 examples/s]Generating train split:  61%|██████    | 24634/40398 [00:00<00:00, 51077.90 examples/s]Generating train split:  74%|███████▍  | 30000/40398 [00:00<00:00, 51837.27 examples/s]Generating train split:  88%|████████▊ | 35434/40398 [00:00<00:00, 52642.58 examples/s]Generating train split: 100%|██████████| 40398/40398 [00:00<00:00, 50822.44 examples/s]
+Generating test split:   0%|          | 0/1767 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1767/1767 [00:00<00:00, 53085.61 examples/s]
+Generating validation split:   0%|          | 0/1267 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 1267/1267 [00:00<00:00, 52320.40 examples/s]
+2024-06-16:03:13:24,938 INFO     [task.py:386] Building contexts for winogrande on rank 0...
+  0%|          | 0/1267 [00:00<?, ?it/s]100%|██████████| 1267/1267 [00:00<00:00, 135375.96it/s]
+2024-06-16:03:13:24,984 INFO     [evaluator.py:365] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/2534 [00:00<?, ?it/s]Running loglikelihood requests:   0%|          | 1/2534 [00:02<1:35:58,  2.27s/it]Running loglikelihood requests:   3%|▎         | 65/2534 [00:02<01:08, 36.19it/s] Running loglikelihood requests:   5%|▌         | 129/2534 [00:02<00:31, 75.98it/s]Running loglikelihood requests:   8%|▊         | 193/2534 [00:02<00:19, 118.98it/s]Running loglikelihood requests:  10%|█         | 257/2534 [00:03<00:14, 162.43it/s]Running loglikelihood requests:  13%|█▎        | 321/2534 [00:03<00:10, 205.37it/s]Running loglikelihood requests:  15%|█▌        | 385/2534 [00:03<00:08, 245.59it/s]Running loglikelihood requests:  18%|█▊        | 449/2534 [00:03<00:07, 280.13it/s]Running loglikelihood requests:  20%|██        | 513/2534 [00:03<00:06, 311.55it/s]Running loglikelihood requests:  23%|██▎       | 577/2534 [00:03<00:05, 337.23it/s]Running loglikelihood requests:  25%|██▌       | 641/2534 [00:03<00:05, 357.28it/s]Running loglikelihood requests:  28%|██▊       | 705/2534 [00:04<00:04, 371.60it/s]Running loglikelihood requests:  30%|███       | 769/2534 [00:04<00:04, 392.35it/s]Running loglikelihood requests:  33%|███▎      | 833/2534 [00:04<00:04, 408.64it/s]Running loglikelihood requests:  35%|███▌      | 897/2534 [00:04<00:03, 419.64it/s]Running loglikelihood requests:  38%|███▊      | 961/2534 [00:04<00:03, 431.09it/s]Running loglikelihood requests:  40%|████      | 1025/2534 [00:04<00:03, 440.13it/s]Running loglikelihood requests:  43%|████▎     | 1089/2534 [00:04<00:03, 445.99it/s]Running loglikelihood requests:  46%|████▌     | 1153/2534 [00:05<00:03, 456.44it/s]Running loglikelihood requests:  48%|████▊     | 1217/2534 [00:05<00:02, 464.02it/s]Running loglikelihood requests:  51%|█████     | 1281/2534 [00:05<00:02, 468.55it/s]Running loglikelihood requests:  53%|█████▎    | 1345/2534 [00:05<00:02, 475.22it/s]Running loglikelihood requests:  56%|█████▌    | 1409/2534 [00:05<00:02, 480.16it/s]Running loglikelihood requests:  58%|█████▊    | 1473/2534 [00:05<00:02, 483.30it/s]Running loglikelihood requests:  61%|██████    | 1537/2534 [00:05<00:02, 493.18it/s]Running loglikelihood requests:  63%|██████▎   | 1601/2534 [00:05<00:01, 500.25it/s]Running loglikelihood requests:  66%|██████▌   | 1665/2534 [00:06<00:01, 505.22it/s]Running loglikelihood requests:  68%|██████▊   | 1729/2534 [00:06<00:01, 508.38it/s]Running loglikelihood requests:  71%|███████   | 1793/2534 [00:06<00:01, 512.80it/s]Running loglikelihood requests:  73%|███████▎  | 1857/2534 [00:06<00:01, 516.07it/s]Running loglikelihood requests:  76%|███████▌  | 1921/2534 [00:06<00:01, 518.08it/s]Running loglikelihood requests:  78%|███████▊  | 1985/2534 [00:06<00:01, 519.27it/s]Running loglikelihood requests:  81%|████████  | 2049/2534 [00:06<00:00, 540.57it/s]Running loglikelihood requests:  83%|████████▎ | 2113/2534 [00:06<00:00, 555.64it/s]Running loglikelihood requests:  86%|████████▌ | 2177/2534 [00:07<00:00, 565.80it/s]Running loglikelihood requests:  88%|████████▊ | 2241/2534 [00:07<00:00, 572.91it/s]Running loglikelihood requests:  91%|█████████ | 2305/2534 [00:07<00:00, 577.63it/s]Running loglikelihood requests:  93%|█████████▎| 2369/2534 [00:07<00:00, 591.26it/s]Running loglikelihood requests:  96%|█████████▌| 2433/2534 [00:07<00:00, 599.74it/s]Running loglikelihood requests: 100%|██████████| 2534/2534 [00:07<00:00, 335.84it/s]
+Passed argument batch_size = auto:1. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True), gen_kwargs: (None), limit: None, num_fewshot: None, batch_size: auto (64)
+|  Tasks   |Version|Filter|n-shot|Metric|Value |   |Stderr|
+|----------|------:|------|------|------|-----:|---|-----:|
+|winogrande|      1|none  |None  |acc   |0.6898|±  | 0.013|
+

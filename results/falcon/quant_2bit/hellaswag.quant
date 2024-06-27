@@ -1,0 +1,60 @@
+nohup: ignoring input
+2024-06-25 21:45:04.543110: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-25 21:45:05.701018: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-25 21:45:07,928] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-25:21:45:09,291 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-25:21:45:09,291 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-25:21:45:14,108 INFO     [__main__.py:307] Selected Tasks: ['hellaswag']
+2024-06-25:21:45:14,108 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-25:21:45:14,109 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-25:21:45:14,115 INFO     [falcon_quant.py:166] Using device 'cuda'
+2024-06-25:21:45:14,418 WARNING  [logging.py:328] 
+WARNING: You are currently loading Falcon using legacy code contained in the model repository. Falcon has now been fully ported into the Hugging Face transformers library. For the most up-to-date and high-performance version of the Falcon model code, please update to the latest version of transformers and then load the model without the trust_remote_code=True argument.
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.17s/it]
+2024-06-25:21:45:22,247 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+Downloading builder script:   0%|          | 0.00/4.36k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 4.36k/4.36k [00:00<00:00, 14.5MB/s]
+Downloading metadata:   0%|          | 0.00/2.53k [00:00<?, ?B/s]Downloading metadata: 100%|██████████| 2.53k/2.53k [00:00<00:00, 12.1MB/s]
+Downloading readme:   0%|          | 0.00/6.84k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 6.84k/6.84k [00:00<00:00, 26.5MB/s]
+The repository for hellaswag contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/hellaswag.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] Traceback (most recent call last):
+  File "/home/zx22/.conda/envs/llama/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 197, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 428, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 267, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 158, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 147, in load_task
+    task_object = ConfigurableTask(config=config)
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/api/task.py", line 759, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/api/task.py", line 848, in download
+    self.dataset = datasets.load_dataset(
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 2594, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 2266, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 1914, in dataset_module_factory
+    raise e1 from None
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 1880, in dataset_module_factory
+    return HubDatasetModuleFactoryWithScript(
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 1525, in get_module
+    trust_remote_code = resolve_trust_remote_code(self.trust_remote_code, self.name)
+  File "/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/datasets/load.py", line 133, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository for hellaswag contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/hellaswag.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.

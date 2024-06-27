@@ -1,0 +1,17 @@
+2024-03-05:19:28:44,053 INFO     [__main__.py:223] Verbosity set to INFO
+2024-03-05:19:28:44,053 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-03-05:19:28:48,437 ERROR    [__main__.py:244] Need to specify task to evaluate.
+2024-03-05:19:29:54,803 INFO     [__main__.py:223] Verbosity set to INFO
+2024-03-05:19:29:54,804 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-03-05:19:30:04,302 ERROR    [__main__.py:244] Need to specify task to evaluate.
+2024-03-05:19:31:15,078 INFO     [__main__.py:223] Verbosity set to INFO
+2024-03-05:19:31:15,079 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-03-05:19:31:24,189 ERROR    [__main__.py:244] Need to specify task to evaluate.
+[2024-03-05 20:06:17,726] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-03-05:20:06:19,271 INFO     [__main__.py:223] Verbosity set to INFO
+2024-03-05:20:06:19,271 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-03-05:20:06:22,384 ERROR    [__main__.py:244] Need to specify task to evaluate.
+[2024-03-05 20:06:28,297] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-03-05:20:06:29,704 INFO     [__main__.py:223] Verbosity set to INFO
+2024-03-05:20:06:29,704 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-03-05:20:06:32,769 ERROR    [__main__.py:244] Need to specify task to evaluate.

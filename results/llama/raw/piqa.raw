@@ -1,0 +1,120 @@
+nohup: ignoring input
+[2024-06-16 03:02:59,811] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-16:03:03:01,327 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-16:03:03:01,327 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-16:03:03:04,945 INFO     [__main__.py:307] Selected Tasks: ['piqa']
+2024-06-16:03:03:04,945 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-16:03:03:04,949 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-16:03:03:04,955 INFO     [huggingface.py:162] Using device 'cuda'
+Traceback (most recent call last):
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 304, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/utils/hub.py", line 398, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 119, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1403, in hf_hub_download
+    raise head_call_error
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1261, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 119, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1674, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 369, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 393, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 321, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-666e9c39-5b1e0da23ac42d6e17b6a74a;db1ae68c-f718-4d92-9ed0-f4283cf3f6cb)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-hf is restricted. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zx22/.conda/envs/smoe/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+             ^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 166, in simple_evaluate
+    lm = lm_eval.api.registry.get_model(model).create_from_arg_string(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/api/model.py", line 134, in create_from_arg_string
+    return cls(**args, **args2)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/models/huggingface.py", line 188, in __init__
+    self._get_config(
+  File "/scratch/zx22/zijie/lm-evaluation-harness/lm_eval/models/huggingface.py", line 453, in _get_config
+    self._config = transformers.AutoConfig.from_pretrained(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 928, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/configuration_utils.py", line 631, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/configuration_utils.py", line 686, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/transformers/utils/hub.py", line 416, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.
+401 Client Error. (Request ID: Root=1-666e9c39-5b1e0da23ac42d6e17b6a74a;db1ae68c-f718-4d92-9ed0-f4283cf3f6cb)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-hf is restricted. You must be authenticated to access it.
+nohup: ignoring input
+[2024-06-16 03:08:25,015] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-16:03:08:26,629 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-16:03:08:26,629 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-16:03:08:30,330 INFO     [__main__.py:307] Selected Tasks: ['piqa']
+2024-06-16:03:08:30,330 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-16:03:08:30,334 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-16:03:08:30,339 INFO     [huggingface.py:162] Using device 'cuda'
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.18s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.18s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.33s/it]
+2024-06-16:03:08:39,092 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+/home/zx22/.conda/envs/smoe/lib/python3.11/site-packages/datasets/load.py:1461: FutureWarning: The repository for piqa contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/piqa
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+Downloading builder script:   0%|          | 0.00/5.36k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 5.36k/5.36k [00:00<00:00, 4.93MB/s]
+Downloading readme:   0%|          | 0.00/8.41k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 8.41k/8.41k [00:00<00:00, 3.91MB/s]
+Downloading data:   0%|          | 0.00/1.82M [00:00<?, ?B/s]Downloading data: 100%|██████████| 1.82M/1.82M [00:00<00:00, 31.7MB/s]
+Downloading data:   0%|          | 0.00/815k [00:00<?, ?B/s]Downloading data: 100%|██████████| 815k/815k [00:00<00:00, 30.3MB/s]
+Generating train split:   0%|          | 0/16113 [00:00<?, ? examples/s]Generating train split:  21%|██        | 3354/16113 [00:00<00:00, 33421.78 examples/s]Generating train split:  47%|████▋     | 7558/16113 [00:00<00:00, 38481.38 examples/s]Generating train split:  73%|███████▎  | 11766/16113 [00:00<00:00, 40072.90 examples/s]Generating train split: 100%|██████████| 16113/16113 [00:00<00:00, 40450.32 examples/s]
+Generating test split:   0%|          | 0/3084 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 3084/3084 [00:00<00:00, 51443.39 examples/s]
+Generating validation split:   0%|          | 0/1838 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 1838/1838 [00:00<00:00, 47948.32 examples/s]
+2024-06-16:03:08:42,825 INFO     [task.py:386] Building contexts for piqa on rank 0...
+  0%|          | 0/1838 [00:00<?, ?it/s]  9%|▉         | 166/1838 [00:00<00:01, 1655.43it/s] 18%|█▊        | 333/1838 [00:00<00:00, 1660.71it/s] 27%|██▋       | 500/1838 [00:00<00:00, 1664.70it/s] 36%|███▋      | 668/1838 [00:00<00:00, 1668.94it/s] 45%|████▌     | 836/1838 [00:00<00:00, 1671.75it/s] 55%|█████▍    | 1004/1838 [00:00<00:00, 1673.13it/s] 64%|██████▍   | 1172/1838 [00:00<00:00, 1674.03it/s] 73%|███████▎  | 1340/1838 [00:00<00:00, 1674.84it/s] 82%|████████▏ | 1508/1838 [00:00<00:00, 1674.62it/s] 91%|█████████ | 1676/1838 [00:01<00:00, 1673.77it/s]100%|██████████| 1838/1838 [00:01<00:00, 1672.24it/s]
+2024-06-16:03:08:43,982 INFO     [evaluator.py:365] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/3676 [00:00<?, ?it/s]Running loglikelihood requests:   0%|          | 1/3676 [00:10<10:13:18, 10.01s/it]Running loglikelihood requests:   2%|▏         | 65/3676 [00:10<07:09,  8.41it/s]  Running loglikelihood requests:   4%|▎         | 129/3676 [00:11<03:12, 18.38it/s]Running loglikelihood requests:   5%|▌         | 193/3676 [00:11<01:55, 30.15it/s]Running loglikelihood requests:   7%|▋         | 257/3676 [00:12<01:18, 43.70it/s]Running loglikelihood requests:   9%|▉         | 322/3676 [00:12<00:56, 59.28it/s]Running loglikelihood requests:  11%|█         | 386/3676 [00:12<00:43, 76.15it/s]Running loglikelihood requests:  12%|█▏        | 450/3676 [00:13<00:34, 93.69it/s]Running loglikelihood requests:  14%|█▍        | 514/3676 [00:13<00:28, 112.06it/s]Running loglikelihood requests:  16%|█▌        | 578/3676 [00:14<00:23, 129.81it/s]Running loglikelihood requests:  17%|█▋        | 642/3676 [00:14<00:20, 147.26it/s]Running loglikelihood requests:  19%|█▉        | 706/3676 [00:14<00:18, 158.44it/s]Running loglikelihood requests:  21%|██        | 770/3676 [00:14<00:16, 171.78it/s]Running loglikelihood requests:  23%|██▎       | 834/3676 [00:15<00:15, 186.50it/s]Running loglikelihood requests:  24%|██▍       | 898/3676 [00:15<00:13, 199.75it/s]Running loglikelihood requests:  26%|██▌       | 962/3676 [00:15<00:12, 210.49it/s]Running loglikelihood requests:  28%|██▊       | 1026/3676 [00:16<00:12, 218.18it/s]Running loglikelihood requests:  30%|██▉       | 1090/3676 [00:16<00:11, 224.51it/s]Running loglikelihood requests:  31%|███▏      | 1154/3676 [00:16<00:10, 233.99it/s]Running loglikelihood requests:  33%|███▎      | 1218/3676 [00:16<00:10, 242.38it/s]Running loglikelihood requests:  35%|███▍      | 1282/3676 [00:17<00:09, 250.01it/s]Running loglikelihood requests:  37%|███▋      | 1346/3676 [00:17<00:08, 263.22it/s]Running loglikelihood requests:  38%|███▊      | 1410/3676 [00:17<00:08, 271.19it/s]Running loglikelihood requests:  40%|████      | 1474/3676 [00:17<00:08, 267.07it/s]Running loglikelihood requests:  42%|████▏     | 1538/3676 [00:17<00:07, 274.84it/s]Running loglikelihood requests:  44%|████▎     | 1602/3676 [00:18<00:07, 284.87it/s]Running loglikelihood requests:  45%|████▌     | 1666/3676 [00:18<00:06, 287.47it/s]Running loglikelihood requests:  47%|████▋     | 1730/3676 [00:18<00:06, 297.36it/s]Running loglikelihood requests:  49%|████▉     | 1794/3676 [00:18<00:06, 291.48it/s]Running loglikelihood requests:  51%|█████     | 1859/3676 [00:18<00:05, 303.85it/s]Running loglikelihood requests:  52%|█████▏    | 1923/3676 [00:19<00:05, 319.45it/s]Running loglikelihood requests:  54%|█████▍    | 1987/3676 [00:19<00:05, 318.21it/s]Running loglikelihood requests:  56%|█████▌    | 2052/3676 [00:19<00:04, 337.54it/s]Running loglikelihood requests:  58%|█████▊    | 2116/3676 [00:19<00:04, 352.32it/s]Running loglikelihood requests:  59%|█████▉    | 2180/3676 [00:19<00:04, 342.64it/s]Running loglikelihood requests:  61%|██████    | 2244/3676 [00:20<00:04, 337.62it/s]Running loglikelihood requests:  63%|██████▎   | 2308/3676 [00:20<00:03, 350.19it/s]Running loglikelihood requests:  65%|██████▍   | 2373/3676 [00:20<00:03, 365.03it/s]Running loglikelihood requests:  66%|██████▋   | 2437/3676 [00:20<00:03, 380.74it/s]Running loglikelihood requests:  68%|██████▊   | 2501/3676 [00:20<00:03, 384.68it/s]Running loglikelihood requests:  70%|██████▉   | 2566/3676 [00:20<00:02, 378.74it/s]Running loglikelihood requests:  72%|███████▏  | 2631/3676 [00:21<00:02, 403.68it/s]Running loglikelihood requests:  73%|███████▎  | 2695/3676 [00:21<00:02, 424.80it/s]Running loglikelihood requests:  75%|███████▌  | 2759/3676 [00:21<00:02, 421.82it/s]Running loglikelihood requests:  77%|███████▋  | 2823/3676 [00:21<00:02, 418.35it/s]Running loglikelihood requests:  79%|███████▊  | 2887/3676 [00:21<00:01, 444.64it/s]Running loglikelihood requests:  80%|████████  | 2952/3676 [00:21<00:01, 465.57it/s]Running loglikelihood requests:  82%|████████▏ | 3016/3676 [00:21<00:01, 496.04it/s]Running loglikelihood requests:  84%|████████▍ | 3080/3676 [00:21<00:01, 512.59it/s]Running loglikelihood requests:  86%|████████▌ | 3144/3676 [00:22<00:00, 535.53it/s]Running loglikelihood requests:  87%|████████▋ | 3208/3676 [00:22<00:00, 552.05it/s]Running loglikelihood requests:  89%|████████▉ | 3286/3676 [00:22<00:00, 613.44it/s]Running loglikelihood requests:  91%|█████████▏| 3359/3676 [00:22<00:00, 645.79it/s]Running loglikelihood requests:  94%|█████████▍| 3464/3676 [00:22<00:00, 648.16it/s]Running loglikelihood requests:  98%|█████████▊| 3593/3676 [00:22<00:00, 729.76it/s]Running loglikelihood requests: 100%|██████████| 3676/3676 [00:22<00:00, 162.00it/s]
+Passed argument batch_size = auto:1. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True), gen_kwargs: (None), limit: None, num_fewshot: None, batch_size: auto (64)
+|Tasks|Version|Filter|n-shot| Metric |Value |   |Stderr|
+|-----|------:|------|------|--------|-----:|---|-----:|
+|piqa |      1|none  |None  |acc     |0.7807|±  |0.0097|
+|     |       |none  |None  |acc_norm|0.7911|±  |0.0095|
+

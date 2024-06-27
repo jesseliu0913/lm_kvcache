@@ -1,0 +1,48 @@
+nohup: ignoring input
+2024-06-25:23:21:27,173 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-25:23:21:27,174 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-25:23:21:31,043 INFO     [__main__.py:307] Selected Tasks: ['hellaswag']
+2024-06-25:23:21:31,044 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-25:23:21:31,045 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-25:23:21:31,194 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-06-25:23:21:31,194 INFO     [huggingface.py:162] Using device 'cuda'
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.87s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.80s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.68s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.72s/it]
+2024-06-25:23:21:36,994 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+The repository for hellaswag contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/hellaswag.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] Traceback (most recent call last):
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/evaluator.py", line 197, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 428, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 267, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 158, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 147, in load_task
+    task_object = ConfigurableTask(config=config)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/api/task.py", line 759, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/scratch1/zx22/zijie/lm-evaluation-harness/lm_eval/api/task.py", line 848, in download
+    self.dataset = datasets.load_dataset(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 2594, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 2266, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 1914, in dataset_module_factory
+    raise e1 from None
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 1887, in dataset_module_factory
+    ).get_module()
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 1525, in get_module
+    trust_remote_code = resolve_trust_remote_code(self.trust_remote_code, self.name)
+  File "/scratch0/zx22/zijie/miniconda3/envs/llama/lib/python3.10/site-packages/datasets/load.py", line 133, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository for hellaswag contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/hellaswag.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.

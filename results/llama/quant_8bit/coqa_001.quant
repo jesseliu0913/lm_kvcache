@@ -1,0 +1,406 @@
+nohup: ignoring input
+2024-06-20 00:11:22.854596: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 00:11:23.713620: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 00:11:26,360] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:00:11:27,782 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:00:11:27,782 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:00:11:32,831 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:00:11:32,832 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:00:11:32,832 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:00:11:32,833 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:00:11:32,839 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.21s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.02s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.20s/it]
+2024-06-20:00:12:04,831 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:00:12:07,854 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 33341.05it/s]
+2024-06-20:00:12:07,856 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [02:23<09:35, 143.98s/it]
+Running generate_until requests:  40%|████      | 2/5 [04:31<06:43, 134.52s/it]
+Running generate_until requests:  60%|██████    | 3/5 [06:39<04:22, 131.26s/it]
+Running generate_until requests:  80%|████████  | 4/5 [08:46<02:09, 129.74s/it]
+Running generate_until requests: 100%|██████████| 5/5 [10:57<00:00, 130.24s/it]
+Running generate_until requests: 100%|██████████| 5/5 [10:57<00:00, 131.56s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value |   |Stderr|
+|-----|------:|------|------|------|-----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.0000|±  |0.0000|
+|     |       |none  |None  |f1    |0.3333|±  |0.1491|
+
+nohup: ignoring input
+2024-06-20 00:44:23.173587: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 00:44:24.180789: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 00:44:26,998] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:00:44:28,522 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:00:44:28,522 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:00:44:33,650 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:00:44:33,652 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:00:44:33,652 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:00:44:33,653 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:00:44:33,660 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.49s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.17s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.37s/it]
+2024-06-20:00:45:19,127 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:00:45:22,139 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 36986.81it/s]
+2024-06-20:00:45:22,142 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:47<03:10, 47.62s/it]
+Running generate_until requests:  40%|████      | 2/5 [01:21<01:58, 39.44s/it]
+Running generate_until requests:  60%|██████    | 3/5 [01:56<01:14, 37.28s/it]
+Running generate_until requests:  80%|████████  | 4/5 [02:31<00:36, 36.38s/it]
+Running generate_until requests: 100%|██████████| 5/5 [03:06<00:00, 35.87s/it]
+Running generate_until requests: 100%|██████████| 5/5 [03:06<00:00, 37.20s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value |   |Stderr|
+|-----|------:|------|------|------|-----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.0000|±  |0.0000|
+|     |       |none  |None  |f1    |0.0041|±  |0.0041|
+
+Running generate_until requests:   0%|          | 0/5 [00:16<?, ?it/s]
+nohup: ignoring input
+2024-06-20 00:58:16.897369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 00:58:17.747621: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 00:58:20,382] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:00:58:21,902 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:00:58:21,902 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:00:58:26,851 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:00:58:26,852 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:00:58:26,852 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:00:58:26,853 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:00:58:26,859 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.96s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.88s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.04s/it]
+2024-06-20:00:59:03,839 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:00:59:06,801 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 34211.29it/s]
+2024-06-20:00:59:06,803 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:15<01:00, 15.18s/it]
+Running generate_until requests:  40%|████      | 2/5 [00:15<00:19,  6.51s/it]
+Running generate_until requests:  60%|██████    | 3/5 [00:16<00:07,  3.77s/it]
+Running generate_until requests:  80%|████████  | 4/5 [00:16<00:02,  2.43s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:16<00:00,  1.67s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:16<00:00,  3.37s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |  0.7|±  |   0.2|
+|     |       |none  |None  |f1    |  0.7|±  |   0.2|
+
+nohup: ignoring input
+2024-06-20 01:00:52.615802: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 01:00:53.445353: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 01:00:56,092] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:01:00:57,579 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:01:00:57,580 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:01:01:02,463 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:01:01:02,464 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:01:01:02,464 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:01:01:02,465 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:01:01:02,470 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.96s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.89s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.05s/it]
+2024-06-20:01:01:43,806 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:01:01:47,220 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 30261.93it/s]
+2024-06-20:01:01:47,223 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:51<03:26, 51.62s/it]
+Running generate_until requests:  40%|████      | 2/5 [01:26<02:05, 41.93s/it]
+Running generate_until requests:  60%|██████    | 3/5 [02:01<01:17, 38.78s/it]
+Running generate_until requests:  80%|████████  | 4/5 [02:36<00:37, 37.21s/it]
+Running generate_until requests: 100%|██████████| 5/5 [03:11<00:00, 36.23s/it]
+Running generate_until requests: 100%|██████████| 5/5 [03:11<00:00, 38.22s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value |   |Stderr|
+|-----|------:|------|------|------|-----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.2000|±  |0.2000|
+|     |       |none  |None  |f1    |0.2107|±  |0.1974|
+nohup: ignoring input
+2024-06-20 01:14:58.064195: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 01:14:58.901429: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 01:15:01,569] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:01:15:03,031 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:01:15:03,031 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:01:15:07,974 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:01:15:07,975 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:01:15:07,975 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:01:15:07,976 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:01:15:07,982 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.92s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.87s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.03s/it]
+2024-06-20:01:15:41,592 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:01:15:44,552 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 34894.38it/s]
+2024-06-20:01:15:44,554 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:34<02:18, 34.68s/it]
+Running generate_until requests:  60%|██████    | 3/5 [00:55<00:33, 16.65s/it]
+Running generate_until requests: 100%|██████████| 5/5 [01:15<00:00, 13.32s/it]
+Running generate_until requests: 100%|██████████| 5/5 [01:15<00:00, 15.14s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |    0|±  |     0|
+|     |       |none  |None  |f1    |    0|±  |     0|
+
+nohup: ignoring input
+2024-06-20 12:42:50.416506: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 12:42:51.302164: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 12:42:53,921] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:12:42:55,300 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:12:42:55,300 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:12:43:00,257 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:12:43:00,258 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:12:43:00,258 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:12:43:00,259 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:12:43:00,264 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.02s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.95s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.11s/it]
+2024-06-20:12:43:40,564 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:12:43:43,570 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 35010.88it/s]
+2024-06-20:12:43:43,572 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:25<01:43, 25.82s/it]
+Running generate_until requests:  60%|██████    | 3/5 [00:37<00:21, 10.93s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:48<00:00,  8.20s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:48<00:00,  9.70s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.000|±  | 0.000|
+|     |       |none  |None  |f1    |0.002|±  | 0.002|
+
+nohup: ignoring input
+2024-06-20 12:49:51.177478: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 12:49:52.073595: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 12:49:54,821] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:12:49:56,293 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:12:49:56,293 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:12:50:01,257 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:12:50:01,258 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:12:50:01,258 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:12:50:01,259 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:12:50:01,265 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.13s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.03s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+2024-06-20:12:50:37,419 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:12:50:40,360 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 31394.49it/s]
+2024-06-20:12:50:40,362 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:25<01:43, 25.88s/it]
+Running generate_until requests:  60%|██████    | 3/5 [00:38<00:22, 11.24s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:50<00:00,  8.53s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:50<00:00, 10.01s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value |   |Stderr|
+|-----|------:|------|------|------|-----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.0000|±  |0.0000|
+|     |       |none  |None  |f1    |0.0036|±  |0.0036|
+
+nohup: ignoring input
+2024-06-20 13:28:03.592216: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 13:28:04.473032: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 13:28:07,225] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:13:28:08,754 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:13:28:08,754 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:13:28:13,738 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:13:28:13,739 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:13:28:13,739 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:13:28:13,740 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:13:28:13,746 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.21s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.08s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.25s/it]
+2024-06-20:13:28:56,101 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:13:28:59,351 INFO     [task.py:386] Building contexts for coqa on rank 0...
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+100%|██████████| 5/5 [00:00<00:00, 31488.77it/s]
+2024-06-20:13:28:59,354 INFO     [evaluator.py:365] Running generate_until requests
+
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+
+Running generate_until requests:  20%|██        | 1/5 [00:25<01:43, 25.88s/it]
+Running generate_until requests:  60%|██████    | 3/5 [00:37<00:21, 10.98s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:48<00:00,  8.23s/it]
+Running generate_until requests: 100%|██████████| 5/5 [00:48<00:00,  9.74s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value |   |Stderr|
+|-----|------:|------|------|------|-----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.0000|±  |0.0000|
+|     |       |none  |None  |f1    |0.0036|±  |0.0036|
+
+nohup: ignoring input
+2024-06-20 16:39:02.177386: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 16:39:03.029154: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 16:39:05,771] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:16:39:07,195 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:16:39:07,196 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:16:39:12,325 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:16:39:12,326 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:16:39:12,326 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:16:39:12,327 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:16:39:12,333 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.28s/it]
+2024-06-20:16:39:44,713 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:16:39:47,578 INFO     [task.py:386] Building contexts for coqa on rank 0...
+  0%|          | 0/5 [00:00<?, ?it/s]100%|██████████| 5/5 [00:00<00:00, 33235.37it/s]
+2024-06-20:16:39:47,581 INFO     [evaluator.py:365] Running generate_until requests
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Running generate_until requests:  20%|██        | 1/5 [00:13<00:55, 13.78s/it]Running generate_until requests:  60%|██████    | 3/5 [00:14<00:07,  3.73s/it]Running generate_until requests: 100%|██████████| 5/5 [00:14<00:00,  1.87s/it]Running generate_until requests: 100%|██████████| 5/5 [00:14<00:00,  2.89s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |  0.7|±  |   0.2|
+|     |       |none  |None  |f1    |  0.7|±  |   0.2|
+
+nohup: ignoring input
+2024-06-20 16:42:33.998773: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-20 16:42:34.893779: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-06-20 16:42:37,644] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-06-20:16:42:39,058 INFO     [__main__.py:223] Verbosity set to INFO
+2024-06-20:16:42:39,058 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-06-20:16:42:44,097 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-06-20:16:42:44,098 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-06-20:16:42:44,098 INFO     [__main__.py:308] Loading selected tasks...
+2024-06-20:16:42:44,099 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-06-20:16:42:44,105 INFO     [llama_quant.py:163] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.13s/it]
+2024-06-20:16:43:20,682 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-06-20:16:43:23,678 INFO     [task.py:386] Building contexts for coqa on rank 0...
+  0%|          | 0/5 [00:00<?, ?it/s]100%|██████████| 5/5 [00:00<00:00, 32263.88it/s]
+2024-06-20:16:43:23,681 INFO     [evaluator.py:365] Running generate_until requests
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/zx22/.conda/envs/llama/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Running generate_until requests:  20%|██        | 1/5 [00:13<00:55, 13.86s/it]Running generate_until requests:  60%|██████    | 3/5 [00:14<00:07,  3.75s/it]Running generate_until requests: 100%|██████████| 5/5 [00:14<00:00,  1.88s/it]Running generate_until requests: 100%|██████████| 5/5 [00:14<00:00,  2.90s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+qh_llama (pretrained=meta-llama/Llama-2-7b-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |  0.7|±  |   0.2|
+|     |       |none  |None  |f1    |  0.7|±  |   0.2|
+
