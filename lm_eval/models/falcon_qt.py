@@ -33,7 +33,7 @@ from lm_eval.models.utils import (
     pad_and_concat,
     stop_sequences_criteria,
 )
-from .mistral_qt_utils import *
+from .falcon_qt_utils import *
 
 eval_logger = utils.eval_logger
 
@@ -63,8 +63,8 @@ def _get_accelerate_args(
     return args
 
 
-@register_model("qt_mistral")
-class QuantHadMistral(TemplateLM):
+@register_model("qt_falcon")
+class QuantHadFalcon(TemplateLM):
     """
     An abstracted Huggingface model class. Enables usage with both models of
     `transformers.AutoModelForCausalLM` and `transformers.AutoModelForSeq2SeqLM` classes.
@@ -561,7 +561,7 @@ class QuantHadMistral(TemplateLM):
             #     self._model, peft, revision=revision
             # )
         
-        self._model = CustomedMistralForCausalLM.from_pretrained(
+        self._model = CustomedFalconForCausalLM.from_pretrained(
                 pretrained,
                 revision=revision,
                 torch_dtype=get_dtype(dtype),
@@ -570,10 +570,8 @@ class QuantHadMistral(TemplateLM):
         )
             
         model_raw_dict = self._model.state_dict()
-        for layer in self._model.model.layers:
-            layer_idx = layer.self_attn.layer_idx
-            self._model.model.layers[layer_idx].self_attn.bit = bit
-        
+        for layer_idx, layer in enumerate(self._model.transformer.h):
+            self._model.transformer.h[layer_idx].self_attention.bit = bit
         
         # self._model.load_state_dict(model_raw_dict)
         # self._model = self._model.to(torch.float16)

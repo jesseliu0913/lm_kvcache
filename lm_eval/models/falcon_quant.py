@@ -573,10 +573,13 @@ class QuantFalcon(TemplateLM):
         for layer_idx, layer in enumerate(self._model.transformer.h):
             self._model.transformer.h[layer_idx].self_attention.bit = bit
         
-        self._model.load_state_dict(model_raw_dict)
-        self._model = self._model.to(torch.float16)
-        self._model.to("cuda")
-        self._model.eval()
+        # dtype = next(self._model.parameters()).dtype
+        # print(f"The model parameters are of dtype: {dtype}")
+        
+        # self._model.load_state_dict(model_raw_dict)
+        # self._model = self._model.to(torch.float16)
+        # self._model.to("cuda")
+        # self._model.eval()
 
         return None
 

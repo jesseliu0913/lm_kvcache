@@ -220,6 +220,7 @@ class CustomedMistralFlashAttention2(QuantMistralAttention):
             )
 
         output_attentions = False
+        bit = self.bit
 
         bsz, q_len, _ = hidden_states.size()
 
@@ -547,6 +548,7 @@ class CustomedMistralSdpaAttention(QuantMistralAttention):
                 use_cache=use_cache,
                 cache_position=cache_position,
             )
+        bit = self.bit
 
         bsz, q_len, _ = hidden_states.size()
 

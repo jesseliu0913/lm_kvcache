@@ -35,6 +35,8 @@ lm_eval/filters/transformation.py
 lm_eval/models/__init__.py
 lm_eval/models/anthropic_llms.py
 lm_eval/models/dummy.py
+lm_eval/models/falcon_qt.py
+lm_eval/models/falcon_qt_utils.py
 lm_eval/models/falcon_quant.py
 lm_eval/models/falcon_quant_utils.py
 lm_eval/models/gguf.py
@@ -44,7 +46,10 @@ lm_eval/models/llama_qt_utils.py
 lm_eval/models/llama_qt_utils_sep.py
 lm_eval/models/llama_quant.py
 lm_eval/models/llama_quant_utils.py
+lm_eval/models/llama_test.py
 lm_eval/models/mamba_lm.py
+lm_eval/models/mistral_qt.py
+lm_eval/models/mistral_qt_utils.py
 lm_eval/models/mistral_quant.py
 lm_eval/models/mistral_quant_utils.py
 lm_eval/models/neuron_optimum.py
@@ -2136,6 +2141,7 @@ lm_eval/tasks/wikitext/README.md
 lm_eval/tasks/wikitext/preprocess_wikitext.py
 lm_eval/tasks/wikitext/wikitext.yaml
 lm_eval/tasks/wikitext/__pycache__/preprocess_wikitext.cpython-310.pyc
+lm_eval/tasks/wikitext/__pycache__/preprocess_wikitext.cpython-39.pyc
 lm_eval/tasks/winogrande/README.md
 lm_eval/tasks/winogrande/default.yaml
 lm_eval/tasks/winogrande/preprocess_winogrande.py

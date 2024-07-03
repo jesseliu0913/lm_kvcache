@@ -220,9 +220,14 @@ class QuantFalconAttention(nn.Module):
             # concatenate along seq_length dimension:
             #  - key: [batch_size, self.num_heads, kv_length, head_dim]
             #  - value: [batch_size, self.num_heads, kv_length, head_dim]
+            key_layer_trans = pass_hadamard(key_layer)
+            value_layer_trans = pass_hadamard(value_layer)
 
-            quantized_key_states = dequantize_per_head(quantize_per_head(key_layer, self.bit))
-            quantized_value_states = dequantize_per_head(quantize_per_head(value_layer, self.bit))
+            quantized_key_states = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
+            quantized_value_states = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+
+            quantized_key_states = pass_hadamard(quantized_key_states)
+            quantized_value_states = pass_hadamard(quantized_value_states)
 
             key_layer = torch.cat((past_key, key_layer), dim=-2)
             value_layer = torch.cat((past_value, value_layer), dim=-2)
@@ -235,9 +240,14 @@ class QuantFalconAttention(nn.Module):
             else:
                 present = None
         else:
-            quantized_past_key = dequantize_per_head(quantize_per_head(key_layer, self.bit))
-            quantized_past_value = dequantize_per_head(quantize_per_head(value_layer, self.bit))
+            key_layer_trans = pass_hadamard(key_layer)
+            value_layer_trans = pass_hadamard(value_layer)
 
+            quantized_past_key = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
+            quantized_past_value = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+
+            quantized_past_key = pass_hadamard(quantized_past_key)
+            quantized_past_value = pass_hadamard(quantized_past_value)
 
             if use_cache:
                 present = (quantized_past_key, quantized_past_value)
@@ -394,9 +404,14 @@ class QuantFalconFlashAttention2(QuantFalconAttention):
             # concatenate along seq_length dimension:
             #  - key: [batch_size, self.num_heads, kv_length, head_dim]
             #  - value: [batch_size, self.num_heads, kv_length, head_dim]
+            key_layer_trans = pass_hadamard(key_layer)
+            value_layer_trans = pass_hadamard(value_layer)
 
-            quantized_key_states = dequantize_per_head(quantize_per_head(key_layer, self.bit))
-            quantized_value_states = dequantize_per_head(quantize_per_head(value_layer, self.bit))
+            quantized_key_states = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
+            quantized_value_states = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+
+            quantized_key_states = pass_hadamard(quantized_key_states)
+            quantized_value_states = pass_hadamard(quantized_value_states)
 
             key_layer = torch.cat((past_key, key_layer), dim=-2)
             value_layer = torch.cat((past_value, value_layer), dim=-2)
@@ -409,9 +424,14 @@ class QuantFalconFlashAttention2(QuantFalconAttention):
             else:
                 past_key_value = None
         else:
-            quantized_past_key = dequantize_per_head(quantize_per_head(key_layer, self.bit))
-            quantized_past_value = dequantize_per_head(quantize_per_head(value_layer, self.bit))
+            key_layer_trans = pass_hadamard(key_layer)
+            value_layer_trans = pass_hadamard(value_layer)
 
+            quantized_past_key = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
+            quantized_past_value = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+
+            quantized_past_key = pass_hadamard(quantized_past_key)
+            quantized_past_value = pass_hadamard(quantized_past_value)
 
             if use_cache:
                 past_key_value = (quantized_past_key, quantized_past_value)
@@ -583,7 +603,7 @@ class FalconMLP(nn.Module):
 FALCON_ATTENTION_CLASSES = {
     "eager": QuantFalconAttention,
     "sdpa": QuantFalconAttention,  # FalconAttention originally implemented both a forward with & without SDPA
-    "flash_attention_2": FalconFlashAttention2,
+    "flash_attention_2": QuantFalconFlashAttention2,
 }
 
 
