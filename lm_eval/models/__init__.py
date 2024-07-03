@@ -21,6 +21,8 @@ from . import (
     mistral_qt,
     falcon_quant_utils,
     falcon_quant,
+    falcon_qt_utils,
+    falcon_qt,
 
 )
 
