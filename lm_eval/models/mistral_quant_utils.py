@@ -478,7 +478,7 @@ class CustomedMistralFlashAttention2(QuantMistralAttention):
 
 # Copied from transformers.models.llama.modeling_llama.LlamaSdpaAttention with Llama->Mistral
 class CustomedMistralSdpaAttention(QuantMistralAttention):
-    def __init__(self, config: MistralConfig, layer_idx: int | None = None, bit=2):
+    def __init__(self, config: MistralConfig, layer_idx: int, bit=2):
         super().__init__(config, layer_idx, bit)
         self.bit = bit
     """

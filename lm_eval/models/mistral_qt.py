@@ -33,8 +33,7 @@ from lm_eval.models.utils import (
     pad_and_concat,
     stop_sequences_criteria,
 )
-# from .llama_purequant import QuantLlamaAttention
-from .mistral_quant_utils import *
+from .mistral_qt_utils import *
 
 eval_logger = utils.eval_logger
 
@@ -64,8 +63,8 @@ def _get_accelerate_args(
     return args
 
 
-@register_model("quant_mistral")
-class QuantMistral(TemplateLM):
+@register_model("qt_mistral")
+class QuantHadMistral(TemplateLM):
     """
     An abstracted Huggingface model class. Enables usage with both models of
     `transformers.AutoModelForCausalLM` and `transformers.AutoModelForSeq2SeqLM` classes.

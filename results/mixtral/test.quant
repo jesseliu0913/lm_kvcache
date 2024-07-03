@@ -1,0 +1,27 @@
+nohup: ignoring input
+2024-07-03 00:23:33.216912: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-07-03 00:23:34.242858: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[2024-07-03 00:23:36,489] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2024-07-03:00:23:37,931 INFO     [__main__.py:223] Verbosity set to INFO
+2024-07-03:00:23:37,931 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-07-03:00:23:42,829 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-07-03:00:23:42,829 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-07-03:00:23:42,829 INFO     [__main__.py:308] Loading selected tasks...
+2024-07-03:00:23:42,830 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-07-03:00:23:42,836 INFO     [mistral_quant.py:167] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.61s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.29s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.17s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.24s/it]
+2024-07-03:00:23:50,451 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-07-03:00:23:53,355 INFO     [task.py:386] Building contexts for coqa on rank 0...
+  0%|          | 0/5 [00:00<?, ?it/s]100%|██████████| 5/5 [00:00<00:00, 31968.78it/s]
+2024-07-03:00:23:53,358 INFO     [evaluator.py:365] Running generate_until requests
+Running generate_until requests:   0%|          | 0/5 [00:00<?, ?it/s]Running generate_until requests:  20%|██        | 1/5 [00:17<01:09, 17.30s/it]Running generate_until requests:  40%|████      | 2/5 [00:28<00:40, 13.63s/it]Running generate_until requests:  60%|██████    | 3/5 [00:39<00:24, 12.45s/it]Running generate_until requests:  80%|████████  | 4/5 [00:50<00:11, 11.86s/it]Running generate_until requests: 100%|██████████| 5/5 [01:01<00:00, 11.53s/it]Running generate_until requests: 100%|██████████| 5/5 [01:01<00:00, 12.26s/it]
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+quant_mistral (pretrained=mistralai/Mistral-7B-v0.3;2,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+|Tasks|Version|Filter|n-shot|Metric|Value|   |Stderr|
+|-----|------:|------|------|------|----:|---|-----:|
+|coqa |      3|none  |None  |em    |0.000|±  |0.0000|
+|     |       |none  |None  |f1    |0.196|±  |0.0865|
+

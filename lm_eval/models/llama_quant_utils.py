@@ -442,7 +442,7 @@ class QuantLlamaFlashAttention2(QuantLlamaAttention):
 
 
 class QuantLlamaSdpaAttention(QuantLlamaAttention):
-    def __init__(self, config: LlamaConfig, layer_idx: int | None = None, bit=8):
+    def __init__(self, config: LlamaConfig, layer_idx: int, bit=8):
         super().__init__(config, layer_idx, bit)
         self.bit = bit
     """

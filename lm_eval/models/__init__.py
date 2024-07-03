@@ -17,8 +17,11 @@ from . import (
     quant_utils,
     mistral_quant_utils,
     mistral_quant,
+    mistral_qt_utils,
+    mistral_qt,
     falcon_quant_utils,
     falcon_quant,
+
 )
 
 
