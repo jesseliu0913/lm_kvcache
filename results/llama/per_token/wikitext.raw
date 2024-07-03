@@ -1,0 +1,33 @@
+nohup: ignoring input
+2024-07-02:17:48:27,863 INFO     [__main__.py:223] Verbosity set to INFO
+2024-07-02:17:48:27,863 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-07-02:17:48:31,812 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-07-02:17:48:31,813 INFO     [__main__.py:307] Selected Tasks: ['wikitext']
+2024-07-02:17:48:31,813 INFO     [__main__.py:308] Loading selected tasks...
+2024-07-02:17:48:31,815 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-07-02:17:48:31,988 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-07-02:17:48:31,988 INFO     [huggingface.py:162] Using device 'cuda'
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.60s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.83s/it]
+2024-07-02:17:48:38,078 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-07-02:17:48:38,080 WARNING  [task.py:740] [Task: wikitext] metric word_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2024-07-02:17:48:38,080 WARNING  [task.py:752] [Task: wikitext] metric word_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2024-07-02:17:48:38,080 WARNING  [task.py:740] [Task: wikitext] metric byte_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2024-07-02:17:48:38,081 WARNING  [task.py:752] [Task: wikitext] metric byte_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2024-07-02:17:48:38,081 WARNING  [task.py:740] [Task: wikitext] metric bits_per_byte is defined, but aggregation is not. using default aggregation=bits_per_byte
+2024-07-02:17:48:38,081 WARNING  [task.py:752] [Task: wikitext] metric bits_per_byte is defined, but higher_is_better is not. using default higher_is_better=False
+Repo card metadata block was not found. Setting CardData to empty.
+2024-07-02:17:48:38,689 WARNING  [repocard.py:107] Repo card metadata block was not found. Setting CardData to empty.
+2024-07-02:17:48:38,734 INFO     [task.py:386] Building contexts for wikitext on rank 0...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1574.44it/s]
+2024-07-02:17:48:38,735 INFO     [evaluator.py:365] Running loglikelihood_rolling requests
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:02<00:00,  2.12s/it]100%|██████████| 1/1 [00:02<00:00,  2.12s/it]
+hf (pretrained=meta-llama/Llama-2-7b-hf,dtype=bfloat16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.01, num_fewshot: None, batch_size: auto
+| Tasks  |Version|Filter|n-shot|    Metric     |Value |   |Stderr|
+|--------|------:|------|------|---------------|-----:|---|------|
+|wikitext|      2|none  |None  |word_perplexity|6.2075|±  |N/A   |
+|        |       |none  |None  |byte_perplexity|1.4221|±  |N/A   |
+|        |       |none  |None  |bits_per_byte  |0.5080|±  |N/A   |
+

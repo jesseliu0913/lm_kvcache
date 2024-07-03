@@ -1,0 +1,34 @@
+nohup: ignoring input
+2024-07-02:16:37:34,580 INFO     [__main__.py:223] Verbosity set to INFO
+2024-07-02:16:37:34,581 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-07-02:16:37:38,430 WARNING  [__main__.py:235]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2024-07-02:16:37:38,431 WARNING  [__main__.py:285] File already exists at output/llama. Results will be overwritten.
+2024-07-02:16:37:38,431 INFO     [__main__.py:307] Selected Tasks: ['wikitext']
+2024-07-02:16:37:38,431 INFO     [__main__.py:308] Loading selected tasks...
+2024-07-02:16:37:38,433 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-07-02:16:37:38,602 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-07-02:16:37:38,602 INFO     [llama_qt.py:167] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.58s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.82s/it]
+2024-07-02:16:38:02,935 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-07-02:16:38:02,937 WARNING  [task.py:740] [Task: wikitext] metric word_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2024-07-02:16:38:02,938 WARNING  [task.py:752] [Task: wikitext] metric word_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2024-07-02:16:38:02,938 WARNING  [task.py:740] [Task: wikitext] metric byte_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2024-07-02:16:38:02,938 WARNING  [task.py:752] [Task: wikitext] metric byte_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2024-07-02:16:38:02,938 WARNING  [task.py:740] [Task: wikitext] metric bits_per_byte is defined, but aggregation is not. using default aggregation=bits_per_byte
+2024-07-02:16:38:02,938 WARNING  [task.py:752] [Task: wikitext] metric bits_per_byte is defined, but higher_is_better is not. using default higher_is_better=False
+Repo card metadata block was not found. Setting CardData to empty.
+2024-07-02:16:38:03,578 WARNING  [repocard.py:107] Repo card metadata block was not found. Setting CardData to empty.
+2024-07-02:16:38:03,628 INFO     [task.py:386] Building contexts for wikitext on rank 0...
+  0%|          | 0/7 [00:00<?, ?it/s]100%|██████████| 7/7 [00:00<00:00, 732.19it/s]
+2024-07-02:16:38:03,639 INFO     [evaluator.py:365] Running loglikelihood_rolling requests
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 2
+  0%|          | 0/7 [00:00<?, ?it/s] 14%|█▍        | 1/7 [00:00<00:02,  2.11it/s] 29%|██▊       | 2/7 [00:03<00:09,  1.82s/it] 43%|████▎     | 3/7 [00:04<00:05,  1.49s/it] 57%|█████▋    | 4/7 [00:08<00:07,  2.52s/it] 71%|███████▏  | 5/7 [00:09<00:03,  1.92s/it] 86%|████████▌ | 6/7 [00:10<00:01,  1.64s/it]100%|██████████| 7/7 [00:15<00:00,  2.90s/it]100%|██████████| 7/7 [00:15<00:00,  2.27s/it]
+qt_llama (pretrained=meta-llama/Llama-2-7b-hf;2,dtype=bfloat16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: 0.1, num_fewshot: None, batch_size: auto
+| Tasks  |Version|Filter|n-shot|    Metric     |Value|   |Stderr|
+|--------|------:|------|------|---------------|-----|---|------|
+|wikitext|      2|none  |None  |word_perplexity|NaN  |±  |N/A   |
+|        |       |none  |None  |byte_perplexity|NaN  |±  |N/A   |
+|        |       |none  |None  |bits_per_byte  |NaN  |±  |N/A   |
+

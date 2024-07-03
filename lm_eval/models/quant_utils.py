@@ -2,14 +2,25 @@ import torch
 
 def zeropoint_scale(X, bit):
     level = float(2 ** bit - 1)
-    X_min = X.amin(dim=(-2, -1), keepdim=True)
-    X_max = X.amax(dim=(-2, -1), keepdim=True)
+    X_min = X.amin(dim=(-3, -1), keepdim=True)
+    X_max = X.amax(dim=(-3, -1), keepdim=True)
     
     scale = (X_max - X_min) / level
     zero_point = -X_min / scale
     zero_point = torch.round(zero_point).clamp(0, int(level))
 
     return scale, zero_point, level
+
+# def zeropoint_scale(X, bit):
+#     level = float(2 ** bit - 1)
+#     X_min = X.amin(dim=(-2, -1), keepdim=True)
+#     X_max = X.amax(dim=(-2, -1), keepdim=True)
+    
+#     scale = (X_max - X_min) / level
+#     zero_point = -X_min / scale
+#     zero_point = torch.round(zero_point).clamp(0, int(level))
+
+#     return scale, zero_point, level
 
 def quantize_per_head(X, bit):
     scale, zero_point, level = zeropoint_scale(X, bit)

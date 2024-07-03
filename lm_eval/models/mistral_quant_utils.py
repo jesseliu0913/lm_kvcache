@@ -480,6 +480,7 @@ class CustomedMistralFlashAttention2(QuantMistralAttention):
 class CustomedMistralSdpaAttention(QuantMistralAttention):
     def __init__(self, config: MistralConfig, layer_idx: int | None = None, bit=2):
         super().__init__(config, layer_idx, bit)
+        self.bit = bit
     """
     Mistral attention module using torch.nn.functional.scaled_dot_product_attention. This module inherits from
     `MistralAttention` as the weights of the module stays untouched. The only changes are on the forward pass to adapt to

@@ -571,14 +571,13 @@ class QuantTransformLlaMa(TemplateLM):
         )
             
         model_raw_dict = self._model.state_dict()
-        for layer in self._model.model.layers:
-            config_layer = layer.self_attn.config
-            layer_idx = layer.self_attn.layer_idx
-            self._model.model.layers[layer_idx].self_attn = QuantLlamaAttention(config=config_layer, layer_idx=layer_idx, bit=bit)
+        for layer_idx, layer in enumerate(self._model.model.layers):
+            self._model.model.layers[layer_idx].self_attn.bit  = bit
         
         self._model.load_state_dict(model_raw_dict)
         self._model = self._model.to(torch.float16)
         self._model.to("cuda")
+
 
 
 
