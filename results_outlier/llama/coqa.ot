@@ -1,0 +1,89 @@
+nohup: ignoring input
+2024-10-20:23:11:53,326 INFO     [__main__.py:223] Verbosity set to INFO
+2024-10-20:23:11:53,326 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-10-20:23:11:59,256 INFO     [__main__.py:307] Selected Tasks: ['coqa']
+2024-10-20:23:11:59,256 INFO     [__main__.py:308] Loading selected tasks...
+2024-10-20:23:11:59,257 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-10-20:23:11:59,360 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-10-20:23:11:59,360 INFO     [llama_outlier.py:167] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+2024-10-20:23:12:02,067 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+CustomedLlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(128256, 2048)
+    (layers): ModuleList(
+      (0-15): 16 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2048, out_features=512, bias=False)
+          (v_proj): Linear(in_features=2048, out_features=512, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=2048, out_features=8192, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=8192, bias=False)
+          (down_proj): Linear(in_features=8192, out_features=2048, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((2048,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=2048, out_features=128256, bias=False)
+)
+Generating train split:   0%|          | 0/7199 [00:00<?, ? examples/s]Generating train split:   0%|          | 0/7199 [00:00<?, ? examples/s]
+Traceback (most recent call last):
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1726, in _prepare_split_single
+    for key, record in generator:
+  File "/scratch1/zx22/zijie/cache/modules/datasets_modules/datasets/EleutherAI--coqa/bb42a2de2b1a4455db06df092006f97a49caa361a4ccab41a049d4ba9d4ee9d8/coqa.py", line 183, in _generate_examples
+    data = json.load(f)
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 197, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/tasks/__init__.py", line 428, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/tasks/__init__.py", line 267, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/tasks/__init__.py", line 158, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/tasks/__init__.py", line 147, in load_task
+    task_object = ConfigurableTask(config=config)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/api/task.py", line 759, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/api/task.py", line 848, in download
+    self.dataset = datasets.load_dataset(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/load.py", line 2582, in load_dataset
+    builder_instance.download_and_prepare(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1005, in download_and_prepare
+    self._download_and_prepare(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1767, in _download_and_prepare
+    super()._download_and_prepare(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1100, in _download_and_prepare
+    self._prepare_split(split_generator, **prepare_split_kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1605, in _prepare_split
+    for job_id, done, content in self._prepare_split_single(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/datasets/builder.py", line 1762, in _prepare_split_single
+    raise DatasetGenerationError("An error occurred while generating the dataset") from e
+datasets.exceptions.DatasetGenerationError: An error occurred while generating the dataset

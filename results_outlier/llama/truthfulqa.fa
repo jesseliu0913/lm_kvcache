@@ -1,0 +1,101 @@
+nohup: ignoring input
+2024-10-21:00:31:31,347 INFO     [__main__.py:223] Verbosity set to INFO
+2024-10-21:00:31:31,347 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-10-21:00:31:35,919 INFO     [__main__.py:307] Selected Tasks: ['truthfulqa']
+2024-10-21:00:31:35,919 INFO     [__main__.py:308] Loading selected tasks...
+2024-10-21:00:31:35,921 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-10-21:00:31:36,023 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-10-21:00:31:36,023 INFO     [llama_outlier.py:167] Using device 'cuda'
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+2024-10-21:00:31:39,239 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-10-21:00:31:44,248 INFO     [task.py:386] Building contexts for truthfulqa_gen on rank 0...
+CustomedLlamaForCausalLM(
+  (model): CustomedLlamaModel(
+    (embed_tokens): Embedding(128256, 2048)
+    (layers): ModuleList(
+      (0-15): 16 x CustomedLlamaDecoderLayer(
+        (self_attn): OutlierLlamaFlashAttention2(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2048, out_features=512, bias=False)
+          (v_proj): Linear(in_features=2048, out_features=512, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=2048, out_features=8192, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=8192, bias=False)
+          (down_proj): Linear(in_features=8192, out_features=2048, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((2048,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=2048, out_features=128256, bias=False)
+)
+  0%|          | 0/817 [00:00<?, ?it/s] 18%|█▊        | 148/817 [00:00<00:00, 1473.36it/s] 36%|███▌      | 296/817 [00:00<00:00, 1466.50it/s] 54%|█████▍    | 443/817 [00:00<00:00, 1462.10it/s] 72%|███████▏  | 590/817 [00:00<00:00, 1432.68it/s] 91%|█████████ | 743/817 [00:00<00:00, 1465.49it/s]100%|██████████| 817/817 [00:00<00:00, 1464.24it/s]
+2024-10-21:00:31:44,854 INFO     [task.py:386] Building contexts for truthfulqa_mc1 on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 10%|█         | 83/817 [00:00<00:00, 820.98it/s] 21%|██        | 171/817 [00:00<00:00, 850.19it/s] 31%|███▏      | 257/817 [00:00<00:00, 849.11it/s] 42%|████▏     | 343/817 [00:00<00:00, 850.60it/s] 53%|█████▎    | 432/817 [00:00<00:00, 862.28it/s] 64%|██████▍   | 521/817 [00:00<00:00, 871.26it/s] 75%|███████▍  | 611/817 [00:00<00:00, 879.62it/s] 86%|████████▌ | 699/817 [00:00<00:00, 867.94it/s] 96%|█████████▋| 788/817 [00:00<00:00, 873.32it/s]100%|██████████| 817/817 [00:00<00:00, 864.67it/s]
+2024-10-21:00:31:45,858 INFO     [task.py:386] Building contexts for truthfulqa_mc2 on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 11%|█         | 86/817 [00:00<00:00, 856.60it/s] 21%|██        | 172/817 [00:00<00:01, 373.80it/s] 32%|███▏      | 259/817 [00:00<00:01, 505.10it/s] 42%|████▏     | 345/817 [00:00<00:00, 602.90it/s] 52%|█████▏    | 427/817 [00:00<00:00, 662.90it/s] 63%|██████▎   | 513/817 [00:00<00:00, 719.29it/s] 73%|███████▎  | 599/817 [00:00<00:00, 759.77it/s] 83%|████████▎ | 681/817 [00:01<00:00, 769.84it/s] 94%|█████████▍| 770/817 [00:01<00:00, 802.57it/s]100%|██████████| 817/817 [00:01<00:00, 690.99it/s]
+2024-10-21:00:31:47,103 INFO     [evaluator.py:365] Running generate_until requests
+Running generate_until requests:   0%|          | 0/817 [00:00<?, ?it/s]/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 1
+Traceback (most recent call last):
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/bin/lm_eval", line 8, in <module>
+    sys.exit(cli_evaluate())
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/__main__.py", line 314, in cli_evaluate
+    results = evaluator.simple_evaluate(
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 233, in simple_evaluate
+    results = evaluate(
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
+    return fn(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 376, in evaluate
+    resps = getattr(lm, reqtype)(cloned_reqs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 1202, in generate_until
+    cont = self._model_generate(
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 780, in _model_generate
+    return self.model.generate(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/utils.py", line 2048, in generate
+    result = self._sample(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/utils.py", line 3008, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 987, in forward
+    outputs = self.model(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 743, in forward
+    layer_outputs = decoder_layer(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 476, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 289, in forward
+    attn_output = _flash_attention_forward(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/modeling_flash_attention_utils.py", line 252, in _flash_attention_forward
+    attn_output_unpad = flash_attn_varlen_func(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 1124, in flash_attn_varlen_func
+    return FlashAttnVarlenFunc.apply(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 620, in forward
+    out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = _flash_attn_varlen_forward(
+  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 90, in _flash_attn_varlen_forward
+    out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = flash_attn_cuda.varlen_fwd(
+RuntimeError: FlashAttention only supports Ampere GPUs or newer.
+Running generate_until requests:   0%|          | 0/817 [00:02<?, ?it/s]

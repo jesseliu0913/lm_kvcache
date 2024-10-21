@@ -114,9 +114,9 @@ class OutlierLlaMa(TemplateLM):
     ) -> None:
         super().__init__()
         
-        config_lst = pretrained.split(";")
-        pretrained = config_lst[0]
-        bit = int(config_lst[-1])
+        # config_lst = pretrained.split(";")
+        # pretrained = config_lst[0]
+        # bit = int(config_lst[-1])
 
         # optionally: take in an already-initialized transformers.PreTrainedModel
         if not isinstance(pretrained, str):
@@ -205,7 +205,6 @@ class OutlierLlaMa(TemplateLM):
         if isinstance(pretrained, str):
             self._create_model(
                 pretrained=pretrained,
-                bit=bit,
                 revision=revision,
                 dtype=dtype,
                 trust_remote_code=trust_remote_code,
@@ -465,7 +464,6 @@ class OutlierLlaMa(TemplateLM):
     def _create_model(
         self,
         pretrained: str,
-        bit: int, 
         revision: Optional[str] = "main",
         dtype: Optional[Union[str, torch.dtype]] = "auto",
         trust_remote_code: Optional[bool] = False,
@@ -569,16 +567,8 @@ class OutlierLlaMa(TemplateLM):
                 trust_remote_code=trust_remote_code,
                 **model_kwargs,
         )
-            
-        model_raw_dict = self._model.state_dict()
-        for layer_idx, layer in enumerate(self._model.model.layers):
-            self._model.model.layers[layer_idx].self_attn.bit = bit
-        
-        self._model.load_state_dict(model_raw_dict)
-        self._model = self._model.to(torch.float16)
         self._model.to("cuda")
-
-
+        print(self._model)
 
         return None
 
