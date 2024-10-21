@@ -262,7 +262,7 @@ class QuantLlamaAttention(nn.Module):
         return attn_output, attn_weights, past_key_value
 
 
-LLAMA_ATTENTION_CLASSES = {
+CLLAMA_ATTENTION_CLASSES = {
     "eager": LlamaAttention,
     "flash_attention_2": LlamaFlashAttention2,
     "sdpa": LlamaSdpaAttention,
@@ -274,7 +274,7 @@ class CustomedLlamaDecoderLayer(nn.Module):
         super().__init__()
         self.hidden_size = config.hidden_size
 
-        self.self_attn = LLAMA_ATTENTION_CLASSES[config._attn_implementation](config=config, layer_idx=layer_idx)
+        self.self_attn = CLLAMA_ATTENTION_CLASSES[config._attn_implementation](config=config, layer_idx=layer_idx)
 
         self.mlp = LlamaMLP(config)
         self.input_layernorm = LlamaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)

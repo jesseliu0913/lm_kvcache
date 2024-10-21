@@ -41,6 +41,8 @@ lm_eval/models/falcon_quant.py
 lm_eval/models/falcon_quant_utils.py
 lm_eval/models/gguf.py
 lm_eval/models/huggingface.py
+lm_eval/models/llama_outlier.py
+lm_eval/models/llama_outlier_utils.py
 lm_eval/models/llama_qt.py
 lm_eval/models/llama_qt_utils.py
 lm_eval/models/llama_qt_utils_sep.py
@@ -55,6 +57,7 @@ lm_eval/models/mistral_quant_utils.py
 lm_eval/models/neuron_optimum.py
 lm_eval/models/openai_completions.py
 lm_eval/models/optimum_lm.py
+lm_eval/models/quant_b_utils.py
 lm_eval/models/quant_utils.py
 lm_eval/models/textsynth.py
 lm_eval/models/utils.py

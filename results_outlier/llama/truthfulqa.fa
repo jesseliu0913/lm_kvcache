@@ -1,14 +1,17 @@
 nohup: ignoring input
-2024-10-21:00:31:31,347 INFO     [__main__.py:223] Verbosity set to INFO
-2024-10-21:00:31:31,347 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
-2024-10-21:00:31:35,919 INFO     [__main__.py:307] Selected Tasks: ['truthfulqa']
-2024-10-21:00:31:35,919 INFO     [__main__.py:308] Loading selected tasks...
-2024-10-21:00:31:35,921 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
-2024-10-21:00:31:36,023 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-2024-10-21:00:31:36,023 INFO     [llama_outlier.py:167] Using device 'cuda'
+2024-10-21 02:03:32.117749: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-21 02:03:33.043356: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-10-21:02:03:36,977 INFO     [__main__.py:223] Verbosity set to INFO
+2024-10-21:02:03:36,977 INFO     [__init__.py:369] lm_eval.tasks.initialize_tasks() is deprecated and no longer necessary. It will be removed in v0.4.2 release. TaskManager will instead be used.
+2024-10-21:02:03:41,260 INFO     [__main__.py:307] Selected Tasks: ['truthfulqa']
+2024-10-21:02:03:41,260 INFO     [__main__.py:308] Loading selected tasks...
+2024-10-21:02:03:41,261 INFO     [evaluator.py:135] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2024-10-21:02:03:41,594 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-10-21:02:03:41,595 INFO     [llama_outlier.py:167] Using device 'cuda'
 The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-2024-10-21:00:31:39,239 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
-2024-10-21:00:31:44,248 INFO     [task.py:386] Building contexts for truthfulqa_gen on rank 0...
+2024-10-21:02:03:48,983 INFO     [evaluator.py:193] get_task_dict has been updated to accept an optional argument, `task_manager`Read more here:https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md#external-library-usage
+2024-10-21:02:03:53,820 INFO     [task.py:386] Building contexts for truthfulqa_mc2 on rank 0...
 CustomedLlamaForCausalLM(
   (model): CustomedLlamaModel(
     (embed_tokens): Embedding(128256, 2048)
@@ -36,66 +39,69 @@ CustomedLlamaForCausalLM(
   )
   (lm_head): Linear(in_features=2048, out_features=128256, bias=False)
 )
-  0%|          | 0/817 [00:00<?, ?it/s] 18%|█▊        | 148/817 [00:00<00:00, 1473.36it/s] 36%|███▌      | 296/817 [00:00<00:00, 1466.50it/s] 54%|█████▍    | 443/817 [00:00<00:00, 1462.10it/s] 72%|███████▏  | 590/817 [00:00<00:00, 1432.68it/s] 91%|█████████ | 743/817 [00:00<00:00, 1465.49it/s]100%|██████████| 817/817 [00:00<00:00, 1464.24it/s]
-2024-10-21:00:31:44,854 INFO     [task.py:386] Building contexts for truthfulqa_mc1 on rank 0...
-  0%|          | 0/817 [00:00<?, ?it/s] 10%|█         | 83/817 [00:00<00:00, 820.98it/s] 21%|██        | 171/817 [00:00<00:00, 850.19it/s] 31%|███▏      | 257/817 [00:00<00:00, 849.11it/s] 42%|████▏     | 343/817 [00:00<00:00, 850.60it/s] 53%|█████▎    | 432/817 [00:00<00:00, 862.28it/s] 64%|██████▍   | 521/817 [00:00<00:00, 871.26it/s] 75%|███████▍  | 611/817 [00:00<00:00, 879.62it/s] 86%|████████▌ | 699/817 [00:00<00:00, 867.94it/s] 96%|█████████▋| 788/817 [00:00<00:00, 873.32it/s]100%|██████████| 817/817 [00:00<00:00, 864.67it/s]
-2024-10-21:00:31:45,858 INFO     [task.py:386] Building contexts for truthfulqa_mc2 on rank 0...
-  0%|          | 0/817 [00:00<?, ?it/s] 11%|█         | 86/817 [00:00<00:00, 856.60it/s] 21%|██        | 172/817 [00:00<00:01, 373.80it/s] 32%|███▏      | 259/817 [00:00<00:01, 505.10it/s] 42%|████▏     | 345/817 [00:00<00:00, 602.90it/s] 52%|█████▏    | 427/817 [00:00<00:00, 662.90it/s] 63%|██████▎   | 513/817 [00:00<00:00, 719.29it/s] 73%|███████▎  | 599/817 [00:00<00:00, 759.77it/s] 83%|████████▎ | 681/817 [00:01<00:00, 769.84it/s] 94%|█████████▍| 770/817 [00:01<00:00, 802.57it/s]100%|██████████| 817/817 [00:01<00:00, 690.99it/s]
-2024-10-21:00:31:47,103 INFO     [evaluator.py:365] Running generate_until requests
-Running generate_until requests:   0%|          | 0/817 [00:00<?, ?it/s]/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
-  warnings.warn(
-Passed argument batch_size = auto. Detecting largest batch size
-Determined Largest batch size: 1
+  0%|          | 0/817 [00:00<?, ?it/s] 12%|█▏        | 98/817 [00:00<00:00, 975.08it/s] 24%|██▍       | 198/817 [00:00<00:00, 987.12it/s] 37%|███▋      | 299/817 [00:00<00:00, 993.98it/s] 49%|████▉     | 400/817 [00:00<00:00, 996.45it/s] 61%|██████    | 500/817 [00:00<00:00, 994.85it/s] 73%|███████▎  | 600/817 [00:00<00:00, 988.53it/s] 86%|████████▌ | 703/817 [00:00<00:00, 999.90it/s] 99%|█████████▊| 805/817 [00:00<00:00, 990.29it/s]100%|██████████| 817/817 [00:00<00:00, 991.86it/s]
+2024-10-21:02:03:54,702 INFO     [task.py:386] Building contexts for truthfulqa_mc1 on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 13%|█▎        | 103/817 [00:00<00:00, 1029.57it/s] 25%|██▌       | 206/817 [00:00<00:00, 1023.25it/s] 38%|███▊      | 311/817 [00:00<00:00, 1031.27it/s] 51%|█████     | 415/817 [00:00<00:00, 1034.23it/s] 64%|██████▎   | 519/817 [00:00<00:00, 1032.94it/s] 76%|███████▋  | 623/817 [00:00<00:00, 1032.49it/s] 89%|████████▉ | 727/817 [00:00<00:00, 1032.99it/s]100%|██████████| 817/817 [00:00<00:00, 1032.55it/s]
+2024-10-21:02:03:55,542 INFO     [task.py:386] Building contexts for truthfulqa_gen on rank 0...
+  0%|          | 0/817 [00:00<?, ?it/s] 22%|██▏       | 176/817 [00:00<00:00, 1750.84it/s] 43%|████▎     | 352/817 [00:00<00:00, 1718.78it/s] 64%|██████▍   | 525/817 [00:00<00:00, 1723.05it/s] 86%|████████▌ | 703/817 [00:00<00:00, 1742.44it/s]100%|██████████| 817/817 [00:00<00:00, 1739.96it/s]
+2024-10-21:02:03:56,061 INFO     [evaluator.py:365] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/9996 [00:00<?, ?it/s]Passed argument batch_size = auto:1. Detecting largest batch size
 Traceback (most recent call last):
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/bin/lm_eval", line 8, in <module>
+  File "/scratch/zx22/zijie/anaconda/envs/llama/bin/lm_eval", line 8, in <module>
     sys.exit(cli_evaluate())
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/__main__.py", line 314, in cli_evaluate
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/__main__.py", line 314, in cli_evaluate
     results = evaluator.simple_evaluate(
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
     return fn(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 233, in simple_evaluate
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 233, in simple_evaluate
     results = evaluate(
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/utils.py", line 288, in _wrapper
     return fn(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 376, in evaluate
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/evaluator.py", line 376, in evaluate
     resps = getattr(lm, reqtype)(cloned_reqs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 1202, in generate_until
-    cont = self._model_generate(
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 780, in _model_generate
-    return self.model.generate(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/utils.py", line 2048, in generate
-    result = self._sample(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/generation/utils.py", line 3008, in _sample
-    outputs = self(**model_inputs, return_dict=True)
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/api/model.py", line 323, in loglikelihood
+    return self._loglikelihood_tokens(new_reqs)
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 945, in _loglikelihood_tokens
+    for chunk in chunks:
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/utils.py", line 427, in get_batched
+    yield from batch
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/utils.py", line 610, in get_chunks
+    if len(arr) == (fn(i, _iter) if fn else n):
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 878, in _batch_scheduler
+    self.batch_sizes[sched] = self._detect_batch_size(n_reordered_requests, pos)
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 659, in _detect_batch_size
+    batch_size = forward_batch()
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/accelerate/utils/memory.py", line 157, in decorator
+    return function(batch_size, *args, **kwargs)
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 654, in forward_batch
+    out = F.log_softmax(self._model_call(test_batch, **call_kwargs), dim=-1)  # noqa: F841
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier.py", line 760, in _model_call
+    return self.model(inps).logits
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 987, in forward
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 988, in forward
     outputs = self.model(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 743, in forward
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 744, in forward
     layer_outputs = decoder_layer(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 476, in forward
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 477, in forward
     hidden_states, self_attn_weights, present_key_value = self.self_attn(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/scratch1/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 289, in forward
+  File "/scratch/zx22/zijie/lm_kvcache/lm_eval/models/llama_outlier_utils.py", line 290, in forward
     attn_output = _flash_attention_forward(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/transformers/modeling_flash_attention_utils.py", line 252, in _flash_attention_forward
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/transformers/modeling_flash_attention_utils.py", line 252, in _flash_attention_forward
     attn_output_unpad = flash_attn_varlen_func(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 1124, in flash_attn_varlen_func
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 1124, in flash_attn_varlen_func
     return FlashAttnVarlenFunc.apply(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/torch/autograd/function.py", line 506, in apply
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
     return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 620, in forward
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 620, in forward
     out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = _flash_attn_varlen_forward(
-  File "/scratch0/zx22/zijie/miniconda3/envs/smoe/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 90, in _flash_attn_varlen_forward
+  File "/scratch/zx22/zijie/anaconda/envs/llama/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 90, in _flash_attn_varlen_forward
     out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = flash_attn_cuda.varlen_fwd(
-RuntimeError: FlashAttention only supports Ampere GPUs or newer.
-Running generate_until requests:   0%|          | 0/817 [00:02<?, ?it/s]
+RuntimeError: cu_seqlens_q must have shape (batch_size + 1)
+Running loglikelihood requests:   0%|          | 0/9996 [00:04<?, ?it/s]

@@ -31,6 +31,7 @@ from transformers.utils import (
     add_start_docstrings,
     add_start_docstrings_to_model_forward,
     is_flash_attn_2_available,
+    is_torchdynamo_compiling,
     is_flash_attn_greater_or_equal_2_10,
     logging,
     replace_return_docstrings,
@@ -141,7 +142,7 @@ class OutlierLlamaAttention(nn.Module):
             value_states[outlier_mask_value] = value_states[outlier_mask_value] * 0.9
             
             key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
-
+        '''
         key_states = repeat_kv(key_states, self.num_key_value_groups)
         value_states = repeat_kv(value_states, self.num_key_value_groups)
         attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
@@ -154,6 +155,14 @@ class OutlierLlamaAttention(nn.Module):
         attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
         attn_weights = nn.functional.dropout(attn_weights, p=self.attention_dropout, training=self.training)
         attn_output = torch.matmul(attn_weights, value_states)
+
+        '''
+        print('key_states', key_states.dtype, key_states.shape)
+        print('query_states', query_states.dtype, query_states.shape)
+        print('value_states', value_states.dtype, value_states.shape)
+
+        from sageattention import sageattn
+        attn_output = sageattn(query_states, key_states, value_states, is_causal=False, smooth_k=True)
 
         if attn_output.size() != (bsz, self.num_heads, q_len, self.head_dim):
             raise ValueError(
@@ -285,7 +294,8 @@ class OutlierLlamaFlashAttention2(OutlierLlamaAttention):
             query_states = query_states.to(target_dtype)
             key_states = key_states.to(target_dtype)
             value_states = value_states.to(target_dtype)
-
+        
+        attiontion_mask=None
         attn_output = _flash_attention_forward(
             query_states,
             key_states,
@@ -428,7 +438,7 @@ class CustomedLlamaDecoderLayer(nn.Module):
         super().__init__()
         self.hidden_size = config.hidden_size
 
-        self.self_attn = CLLAMA_ATTENTION_CLASSES['flash_attention_2'](config=config, layer_idx=layer_idx)
+        self.self_attn = CLLAMA_ATTENTION_CLASSES['eager'](config=config, layer_idx=layer_idx)
 
         self.mlp = LlamaMLP(config)
         self.input_layernorm = LlamaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)
@@ -900,7 +910,7 @@ class CustomedLlamaModel(LlamaPreTrainedModel):
         return causal_mask
 
 
-class CustomedLlamaForCausalLM(LlamaPreTrainedModel, GenerationMixin):
+class CustomedLlamaForCausalLM(LlamaPreTrainedModel):
     _tied_weights_keys = ["lm_head.weight"]
 
     def __init__(self, config):
