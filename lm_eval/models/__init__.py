@@ -23,6 +23,7 @@ from . import (
     falcon_quant,
     falcon_qt_utils,
     falcon_qt,
+    llama_outlier,
 )
 
 

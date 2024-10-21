@@ -6,6 +6,7 @@ except ImportError:
 from typing import List, Optional, Tuple, Union
 
 import torch
+import pickle
 import torch.nn.functional as F
 import torch.utils.checkpoint
 from torch import nn
@@ -152,20 +153,15 @@ class QuantLlamaAttention(nn.Module):
             prefilling_tag = True if past_key_value[-1] == [] else False
             
             if prefilling_tag:
-                quantized_value_states = value_states
                 quantized_key_states = dequantize_per_head(quantize_per_head(key_states, bit=bit))
-                # quantized_value_states = dequantize_per_head(quantize_per_head(value_states, bit=bit))
+                quantized_value_states = dequantize_per_head(quantize_per_head(value_states, bit=bit))
 
                 past_key_value[self.layer_idx].append(quantized_key_states)
                 past_key_value[self.layer_idx].append(quantized_value_states)
-                
-                
             
             else:
-                value_states_current = value_states
                 key_states_current = dequantize_per_head(quantize_per_head(key_states, bit=bit))
-                # value_states_current = dequantize_per_head(quantize_per_head(value_states, bit=bit))
-
+                value_states_current = dequantize_per_head(quantize_per_head(value_states, bit=bit))
 
                 layer_info = past_key_value[self.layer_idx]
                 past_key_states = layer_info[0]
@@ -493,29 +489,15 @@ class QuantLlamaSdpaAttention(QuantLlamaAttention):
         query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
         bit = self.bit
 
+        # batch_size, num_heads, seq_length, head_dim
         if past_key_value is not None:
             prefilling_tag = True if past_key_value[-1] == [] else False
-
-            # if prefilling_tag:
-            #     past_key_value[self.layer_idx].append(key_states)
-            #     past_key_value[self.layer_idx].append(value_states)
-            
-            # else:
-            #     layer_info = past_key_value[self.layer_idx]
-            #     past_key_states = layer_info[0]
-            #     past_value_states = layer_info[-1]
-
-            #     key_states = torch.concat([past_key_states, key_states], dim=2)
-            #     value_states = torch.concat([past_value_states, value_states], dim=2)
-
-            #     # update past_key_value
-            #     past_key_value[self.layer_idx][0] = key_states
-            #     past_key_value[self.layer_idx][-1] = value_states
             
             if prefilling_tag:
-                # quantized_value_states = value_states
+                # quantized_key_states = key_states
                 quantized_key_states = dequantize_per_head(quantize_per_head(key_states, bit=bit))
                 quantized_value_states = dequantize_per_head(quantize_per_head(value_states, bit=bit))
+                # quantized_value_states = value_states
 
                 past_key_value[self.layer_idx].append(quantized_key_states)
                 past_key_value[self.layer_idx].append(quantized_value_states)
@@ -523,9 +505,10 @@ class QuantLlamaSdpaAttention(QuantLlamaAttention):
                 
             
             else:
-                # value_states_current = value_states
+                # key_states_current = key_states
                 key_states_current = dequantize_per_head(quantize_per_head(key_states, bit=bit))
                 value_states_current = dequantize_per_head(quantize_per_head(value_states, bit=bit))
+                # value_states_current = value_states
 
 
                 layer_info = past_key_value[self.layer_idx]
@@ -1084,7 +1067,6 @@ class CustomedLlamaForCausalLM(LlamaPreTrainedModel):
             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
         outputs = self.model(
             input_ids=input_ids,

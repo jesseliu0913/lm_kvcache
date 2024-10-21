@@ -32,7 +32,7 @@ from transformers.utils import (
 )
 from transformers.models.falcon.configuration_falcon import FalconConfig
 from transformers.models.falcon.modeling_falcon import *
-from .quant_utils import *
+from .quant_b_utils import *
 
 if TYPE_CHECKING:
     from transformers.configuration_utils import PretrainedConfig
@@ -221,13 +221,15 @@ class QuantFalconAttention(nn.Module):
             #  - key: [batch_size, self.num_heads, kv_length, head_dim]
             #  - value: [batch_size, self.num_heads, kv_length, head_dim]
             key_layer_trans = pass_hadamard(key_layer)
-            value_layer_trans = pass_hadamard(value_layer)
+            # value_layer_trans = pass_hadamard(value_layer)
 
             quantized_key_states = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
-            quantized_value_states = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+            # quantized_value_states = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
 
             quantized_key_states = pass_hadamard(quantized_key_states)
-            quantized_value_states = pass_hadamard(quantized_value_states)
+            # quantized_key_states = key_layer
+            # quantized_value_states = pass_hadamard(quantized_value_states)
+            quantized_value_states = value_layer
 
             key_layer = torch.cat((past_key, key_layer), dim=-2)
             value_layer = torch.cat((past_value, value_layer), dim=-2)
@@ -241,13 +243,15 @@ class QuantFalconAttention(nn.Module):
                 present = None
         else:
             key_layer_trans = pass_hadamard(key_layer)
-            value_layer_trans = pass_hadamard(value_layer)
+            # value_layer_trans = pass_hadamard(value_layer)
 
             quantized_past_key = dequantize_per_head(quantize_per_head(key_layer_trans, self.bit))
-            quantized_past_value = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
+            # quantized_past_value = dequantize_per_head(quantize_per_head(value_layer_trans, self.bit))
 
             quantized_past_key = pass_hadamard(quantized_past_key)
-            quantized_past_value = pass_hadamard(quantized_past_value)
+            # quantized_past_key = key_layer
+            # quantized_past_value = pass_hadamard(quantized_past_value)
+            quantized_past_value = value_layer
 
             if use_cache:
                 present = (quantized_past_key, quantized_past_value)

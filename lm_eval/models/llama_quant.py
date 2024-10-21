@@ -33,7 +33,7 @@ from lm_eval.models.utils import (
     pad_and_concat,
     stop_sequences_criteria,
 )
-# from .llama_purequant import QuantLlamaAttention
+
 from .llama_quant_utils import *
 
 eval_logger = utils.eval_logger

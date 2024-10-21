@@ -28,7 +28,7 @@ from transformers.utils import (
 )
 from transformers.models.mistral.configuration_mistral import MistralConfig
 from transformers.models.mistral.modeling_mistral import *
-from .quant_utils import *
+from .quant_b_utils import *
 
 logger = logging.get_logger(__name__)
 _CONFIG_FOR_DOC = "MistralConfig"
@@ -531,18 +531,20 @@ class CustomedMistralSdpaAttention(QuantMistralAttention):
             prefilling_tag = True if past_key_value[-1] == [] else False
             
             if prefilling_tag:
-
+                # quantized_key_states = key_states
                 quantized_key_states = dequantize_per_head(quantize_per_head(key_states, bit=self.bit))
                 quantized_value_states = dequantize_per_head(quantize_per_head(value_states, bit=self.bit))
+                # quantized_value_states = value_states
 
                 past_key_value[self.layer_idx].append(quantized_key_states)
                 past_key_value[self.layer_idx].append(quantized_value_states)
                 
             else:
-                
+                # key_states_current = key_states
                 key_states_current = dequantize_per_head(quantize_per_head(key_states, bit=self.bit))
                 value_states_current = dequantize_per_head(quantize_per_head(value_states, bit=self.bit))
-
+                # value_states_current = value_states
+                
                 layer_info = past_key_value[self.layer_idx]
                 past_key_states = layer_info[0]
                 past_value_states = layer_info[-1]

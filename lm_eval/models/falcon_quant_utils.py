@@ -32,7 +32,7 @@ from transformers.utils import (
 )
 from transformers.models.falcon.configuration_falcon import FalconConfig
 from transformers.models.falcon.modeling_falcon import *
-from .quant_utils import *
+from .quant_b_utils import *
 
 if TYPE_CHECKING:
     from transformers.configuration_utils import PretrainedConfig
@@ -220,9 +220,10 @@ class QuantFalconAttention(nn.Module):
             # concatenate along seq_length dimension:
             #  - key: [batch_size, self.num_heads, kv_length, head_dim]
             #  - value: [batch_size, self.num_heads, kv_length, head_dim]
-
+            # quantized_key_states = key_layer
             quantized_key_states = dequantize_per_head(quantize_per_head(key_layer, self.bit))
             quantized_value_states = dequantize_per_head(quantize_per_head(value_layer, self.bit))
+            # quantized_value_states = value_layer
 
             key_layer = torch.cat((past_key, key_layer), dim=-2)
             value_layer = torch.cat((past_value, value_layer), dim=-2)
@@ -235,9 +236,10 @@ class QuantFalconAttention(nn.Module):
             else:
                 present = None
         else:
+            # quantized_past_key = key_layer
             quantized_past_key = dequantize_per_head(quantize_per_head(key_layer, self.bit))
             quantized_past_value = dequantize_per_head(quantize_per_head(value_layer, self.bit))
-
+            # quantized_past_value = value_layer
 
             if use_cache:
                 present = (quantized_past_key, quantized_past_value)
